@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamilkumaran G - Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #fff;
+            --main-color: #0ef;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .header.sticky {
+            border-bottom: .1rem solid rgba(0, 0, 0, .2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-img img {
+            width: 30vw;
+            animation: floatImage 4s ease-in-out infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2.4rem); }
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+
+        .social-media a i {
+            font-size: 2rem;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-resume {
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            color: var(--main-color);
+        }
+
+        .btn-resume:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .btn-resume i {
+            margin-right: .5rem;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            background: var(--second-bg-color);
+        }
+
+        .about-img img {
+            width: 35vw;
+            border-radius: 2rem;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .skills {
+            background: var(--bg-color);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            gap: 2rem;
+        }
+
+        .skills-box {
+            background: var(--second-bg-color);
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+        }
+
+        .skills-box:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .skills-box i {
+            font-size: 5rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-box p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+        }
+
+        .portfolio {
+            background: var(--second-bg-color);
+        }
+
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .portfolio-box {
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem var(--bg-color);
+            overflow: hidden;
+            display: flex;
+            min-height: 30rem;
+            background: var(--bg-color);
+        }
+
+        .portfolio-box img {
+            width: 100%;
+            transition: .5s ease;
+            object-fit: cover;
+        }
+
+        .portfolio-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 4rem;
+            transform: translateY(100%);
+            transition: .5s ease;
+        }
+
+        .portfolio-box:hover .portfolio-layer {
+            transform: translateY(0);
+        }
+
+        .portfolio-layer h4 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-layer p {
+            font-size: 1.4rem;
+            margin: .3rem 0 1rem;
+        }
+
+        .portfolio-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+
+        .portfolio-layer a i {
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+
+        .achievements {
+            background: var(--bg-color);
+        }
+
+        .achievements-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .achievement-box {
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+        }
+
+        .achievement-box:hover {
+            border-color: var(--main-color);
+            transform: translateX(1rem);
+        }
+
+        .achievement-box h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-box p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+        }
+
+        .contact {
+            background: var(--second-bg-color);
+        }
+
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact form .input-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact form .input-box input,
+        .contact form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+        }
+
+        .contact form .input-box input {
+            width: 49%;
+        }
+
+        .contact form textarea {
+            resize: none;
+        }
+
+        #form-status {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.6rem;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+        }
+
+        .footer-text p {
+            font-size: 1.6rem;
+        }
+
+        .footer-iconTap a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTap a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-iconTap a i {
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+
+        /* Breakpoints */
+        @media (max-width: 1200px) {
+            html { font-size: 55%; }
+        }
+
+        @media (max-width: 991px) {
+            .header { padding: 2rem 3%; }
+            section { padding: 10rem 3% 2rem; }
+            .footer { padding: 2rem 3%; }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: block; }
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active { display: block; }
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .home { flex-direction: column; }
+            .home-content h3 { font-size: 2.6rem; }
+            .home-content h1 { font-size: 5rem; }
+            .home-img img { width: 70vw; margin-top: 4rem; }
+            .about { flex-direction: column-reverse; }
+            .about-img img { width: 70vw; margin-top: 4rem; }
+            .portfolio-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 617px) {
+            .portfolio-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 450px) {
+            html { font-size: 50%; }
+            .contact form .input-box input { width: 100%; }
+        }
+
+        @media (max-width: 365px) {
+            .home-img img { width: 90vw; }
+            .about-img img { width: 90vw; }
+            .footer { flex-direction: column-reverse; }
+            .footer p { text-align: center; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Tamilkumaran</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, I'm</h3>
+            <h1>Tamilkumaran G</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>
+                AI & Data Science student passionate about building intelligent applications that solve real-world problems. 
+                Skilled in Python, Java, Flutter, and Machine Learning with hands-on experience in deep learning, 
+                computer vision, and full-stack development. Specialized in AI workflow automation using LangChain and n8n for 
+                building intelligent chatbots and automated systems. Currently pursuing B.Tech at Rajalakshmi Institute of Technology.
+            </p>
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/tamilkumaran-g-84291a292/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/tamilkumaran-g" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="mailto:tamilkumaran636@gmail.com"><i class='bx bx-envelope'></i></a>
+                <a href="tel:+919585644908"><i class='bx bx-phone'></i></a>
+            </div>
+            <div class="btn-group">
+                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="assets\Tamilkumaran G.pdf" class="btn btn-resume" download><i class='bx bx-download'></i> Download Resume</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="images\IMG_20250725_161834.jpg" alt="Profile">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="images/profile.png" alt="About">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>AI & Data Science Enthusiast</h3>
+            <p>
+                I'm a passionate developer with expertise in cross-platform development using Flutter (Dart) and 
+                a strong interest in UI/UX design using Figma. I build responsive frontends with HTML, CSS, and 
+                JavaScript, while leveraging Python and Java for backend development.
+            </p>
+            <p>
+                My focus is on training and deploying machine learning models using TensorFlow, Scikit-learn, and 
+                PyTorch, integrating them into real-world applications. I specialize in building AI workflow automation 
+                systems using LangChain for creating intelligent agents and n8n for orchestrating complex automation workflows. 
+                I'm experienced with MySQL and MongoDB for effective backend data management.
+            </p>
+            <p>
+                Currently maintaining a CGPA of 8.0/10 at Rajalakshmi Institute of Technology and serving as 
+                Editorial Head in the Social Media Club.
+            </p>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">Technical <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <i class='bx bxl-python'></i>
+                <h3>Programming</h3>
+                <p>Python, Java, HTML, CSS, JavaScript, Dart (Flutter)</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-brain'></i>
+                <h3>AI & ML</h3>
+                <p>TensorFlow, PyTorch, Scikit-learn, Deep Learning, Computer Vision, YOLOv8</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-bot'></i>
+                <h3>AI Frameworks</h3>
+                <p>LangChain, LangGraph, RAG Systems, Vector Databases, Prompt Engineering</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-cog'></i>
+                <h3>Automation & Integration</h3>
+                <p>n8n, Workflow Automation, API Integration, WhatsApp Business API</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-data'></i>
+                <h3>Databases</h3>
+                <p>MySQL, MongoDB - Certified by MongoDB University</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-palette'></i>
+                <h3>Design & Editing</h3>
+                <p>Figma, Photoshop, Premiere Pro, After Effects</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-mobile-alt'></i>
+                <h3>App Development</h3>
+                <p>Flutter, Dart, Cross-platform mobile applications</p>
+            </div>
+            <div class="skills-box">
+                <i class='bx bx-chart'></i>
+                <h3>Data Analysis</h3>
+                <p>Data processing, visualization, and statistical analysis</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Featured <span>Projects</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="images/Gramvantage.454Z.png" alt="GramVantage">
+                <div class="portfolio-layer">
+                    <h4>GramVantage</h4>
+                    <p>AI-Based Village Empowerment App with Flutter & Dart. Multilingual assistance, Aadhaar login, and real-time dashboards for rural citizens.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/Lung.png" alt="Lung Disease Detection">
+                <div class="portfolio-layer">
+                    <h4>Lung Disease Detection</h4>
+                    <p>Deep learning diagnostic tool using YOLOv8 for detecting lung conditions from X-ray images. Built with Python and Streamlit.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/Pdf.png" alt="Smart Document">
+                <div class="portfolio-layer">
+                    <h4>Smart Document Insight</h4>
+                    <p>AI-powered document system with semantic linking and podcast/audio features. Adobe Hackathon 2025 Top 100 project.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/whatsappai.png" alt="WhatsApp AI Automation">
+                <div class="portfolio-layer">
+                    <h4>WhatsApp AI Automation</h4>
+                    <p>Intelligent chatbot built with n8n and LangChain that automates WhatsApp conversations, retrieves context from chat history, and provides smart responses using RAG.</p>
+                    <a href="#"><i class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements" id="achievements">
+    <h2 class="heading">Achievements & <span>Recognition</span></h2>
+    <div class="achievements-container">
+        <div class="achievement-box">
+            <h3><i class='bx bx-briefcase'></i> AI/ML Intern - Spinacle Technologies</h3>
+            <p>Working as an AI/ML intern at Spinacle Technologies, specializing in developing intelligent automation solutions, implementing LangChain-based AI agents, and building scalable chatbot systems using modern AI frameworks.</p>
+        </div>
+        <div class="achievement-box">
+            <h3><i class='bx bx-trophy'></i> Adobe Hackathon 2025</h3>
+            <p>Selected for Round 3, ranking among the Top 100 teams nationwide for developing an AI-powered Smart Document Insight System with semantic linking and podcast/audio features.</p>
+        </div>
+        <div class="achievement-box">
+            <h3><i class='bx bx-bulb'></i> Design Spark Challenge</h3>
+            <p>Participated in the 50 Hours of Design Spark Challenge hosted by Intellect Design Arena Ltd. and NASSCOM. Collaborated on persona creation, journey mapping, and AI-driven design thinking to solve real-world problems under expert mentorship.</p>
+        </div>
+        <div class="achievement-box">
+            <h3><i class='bx bx-certificate'></i> MongoDB Certification</h3>
+            <p>Completed "Introduction to MongoDB for Students" certification from MongoDB University, demonstrating proficiency in database management and NoSQL technologies.</p>
+        </div>
+        <div class="achievement-box">
+            <h3><i class='bx bx-group'></i> Editorial Head - Social Media Club</h3>
+            <p>Leading the Social Media Club at Rajalakshmi Institute of Technology, managing content creation, social media strategy, and team coordination.</p>
+        </div>
+    </div>
+   </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        <form id="contact-form">
+            <div class="input-box">
+                <input type="text" name="user_name" placeholder="Full Name" required>
+                <input type="email" name="user_email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="tel" name="user_phone" placeholder="Mobile Number">
+                <input type="text" name="user_subject" placeholder="Email Subject" required>
+            </div>
+            <textarea name="user_message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn" id="submit-btn">
+        </form>
+        <p id="form-status"></p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by Tamilkumaran G | Chennai, India</p>
+        </div>
+        <div class="footer-iconTap">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("OvzBHZX1lNonygLJA"); // Replace with your EmailJS public key
+        })();
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const formStatus = document.getElementById('form-status');
+            
+            submitBtn.value = 'Sending...';
+            submitBtn.disabled = true;
+            
+            emailjs.sendForm('service_n69xz0e', 'template_og3dn5d', this)
+                .then(function() {
+                    formStatus.textContent = '✓ Message sent successfully!';
+                    formStatus.style.color = '#0ef';
+                    document.getElementById('contact-form').reset();
+                    submitBtn.value = 'Send Message';
+                    submitBtn.disabled = false;
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 5000);
+                }, function(error) {
+                    formStatus.textContent = '✗ Failed to send message. Please try again.';
+                    formStatus.style.color = '#ff0000';
+                    submitBtn.value = 'Send Message';
+                    submitBtn.disabled = false;
+                    console.log('EmailJS Error:', error);
+                });
+        });
+
+        // Toggle icon navbar
+        let menuIcon = document.querySelector("#menu-icon");
+        let navbar = document.querySelector(".navbar");
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle("bx-x");
+            navbar.classList.toggle("active");
+        };
+
+        // Scroll Sections Active Links
+        let sections = document.querySelectorAll("section");
+        let navLinks = document.querySelectorAll("header nav a");
+
+        window.onscroll = () => {
+            sections.forEach((sec) => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute("id");
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach((links) => {
+                        links.classList.remove("active");
+                        document
+                            .querySelector("header nav a[href*=" + id + "]")
+                            .classList.add("active");
+                    });
+                }
+            });
+
+            // Sticky navbar
+            let header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 100);
+
+            // Remove toggle icon and navbar when click navbar link
+            menuIcon.classList.remove("bx-x");
+            navbar.classList.remove("active");
+        };
+
+        // Scroll reveal
+        ScrollReveal({
+            distance: "80px",
+            duration: 2000,
+            delay: 200,
+        });
+
+        ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
+        ScrollReveal().reveal(".home-img, .skills-container, .portfolio-box, .achievement-box, .contact form", { origin: "bottom" });
+        ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
+        ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
+
+        // Typed js
+        const typed = new Typed('.multiple-text', {
+            strings: ['AI Developer', 'AI Workflow Engineer', 'ML Engineer', 'LangChain Developer'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+</body>
+</html>
